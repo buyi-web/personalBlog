@@ -1,0 +1,222 @@
+
+@font-face {
+    font-family: "myIcon";
+    src: url("../font/glyphicons-halflings-regular.woff2")
+}
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body{
+    background-image: url("../image/bg.jpg");
+    text-align: center;
+    position: relative;
+}
+.header{
+    width: 100%;
+    height: 50px;
+    background: #191818;
+}
+.header .container{
+    width: 1170px;
+    margin: 0 auto;
+    height: 50px;
+    position: relative;
+}
+.container .title{
+    text-decoration: none;
+    color: #eeeeee;
+    line-height: 50px;
+    float: left;
+    margin: 0 15px;
+    font-size: 18px;
+}
+.container .menu{
+    display: inline-block;
+    float: left;
+}
+.menu li {
+    float: left;
+    margin: 0 10px;
+}
+.menu li a{
+    color: #eee;
+    text-decoration: none;
+    line-height: 50px;
+    font-size: 14PX;
+}
+.container .search input{
+    outline: none;
+    border: 1px solid;
+    height: 22px;
+    padding: 5px 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    border-radius: 5px;
+    right: 60px;
+}
+.container .search button{
+    position: absolute;
+    height: 34px;
+    width: 50px;
+    font-size: 14px;
+    color: #555;
+    background: white;
+    right: 0;
+    border: 0;
+    border-radius: 8px;
+    top: 50%;
+    margin-top: -17px;
+}
+
+.content{
+    width: 1170px;
+    margin: 30px auto 0 auto;
+    position: relative;
+}
+.content .left{
+    width: 65%;
+    float: left;
+}
+.content .right{
+    width: 33%;
+    float: right;
+}
+.right > div{
+    width: 100%;
+    background: #1f1f1f;
+    border-radius: 5px;
+    text-align: left;
+    padding: 15px 15px 20px 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.right > div h4{
+    font-size: 14px;
+    color: dodgerblue;
+    margin-bottom: 10px;
+}
+.right .tags a{
+    text-decoration: none;
+    margin: 5px 10px;
+    color: #eee;
+    float: left;
+}
+
+.right .hot ul li{
+    color: white;
+    line-height: 32px;
+    font-size: 14px;
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.hot ul li a{
+    color: #eee;
+    text-decoration: none;
+}
+.right .new-comments ul li {
+    border-bottom: 1px solid #706c6c;
+    padding-top: 8px;
+}
+.right .new-comments div .username{
+    color: #eee;
+    font-weight: 600;
+    font-size: 14px;
+}
+.right .new-comments div .time{
+    color: whitesmoke;
+    font-size: 14px;
+    float: right;
+}
+.right .new-comments div .comment{
+    margin: 10px 0px;
+    font-size: 14px;
+    color: #787878;
+}
+
+.right .link a{
+    display: inline-block;
+    width: 40%;
+    color: white;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    line-height: 30px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.footer {
+    width: 100%;
+    height: 40px;
+    background: #191818;
+    text-align: center;
+    padding: 15px;
+}
+.footer > ul {
+    display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.footer > ul > li {
+    color: #a2a2a2;
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.footer > p {
+    margin-top: 10px;
+    color: #a2a2a2;
+}
+
+.page_tool {
+    margin-top: 50px;
+    display: inline-block;
+}
+
+.page_tool > ul > li {
+    display: inline-block;
+    list-style: none;
+    width: 40px;
+    height: 30px;
+    background: pink;
+    line-height: 30px;
+    background: white;
+    text-align: center;
+    border: 1px solid black;
+    float: left;
+    cursor: pointer;
+}
+
+.page_tool > ul > li:hover {
+    background: gray;
+}
+
+.now_page {
+    background: #333 !important;
+    color: #fff !important;
+}

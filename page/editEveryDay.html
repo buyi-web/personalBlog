@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日一句编辑</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <style>
+    .wrap {
+      width: 800px;
+      margin: 20px auto;
+    }
+
+    .ipt-txt {
+      font-size: 12px;
+      display: inline-block;
+      box-sizing: border-box;
+      background-color: #f4f5f7;
+      border: 1px solid #e5e9ef;
+      overflow: auto;
+      border-radius: 4px;
+      color: #555;
+      width: 100%;
+      height: 65px;
+      transition: 0s;
+      padding: 5px 10px;
+      line-height: normal;
+      margin: 20px auto;
+      outline: none;
+      resize: none;
+    }
+
+    input {
+      height: 20px;
+      width: 300px;
+      outline: none;
+      border: none;
+      padding: 5px 10px;
+    }
+
+    button {
+      width: 65px;
+      height: 30px;
+      padding: 4px 15px;
+      font-size: 14px;
+      color: #fff;
+      border-radius: 4px;
+      text-align: center;
+      min-width: 60px;
+      vertical-align: top;
+      cursor: pointer;
+      background-color: #00a1d6;
+      border: 1px solid #00a1d6;
+      transition: .1s;
+      user-select: none;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <p>中文内容</p>
+    <textarea cols="80" name="zhText" rows="5" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"
+      class="ipt-txt"></textarea>
+    <p>英文内容</p>
+    <textarea cols="80" name="enText" rows="5" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"
+      class="ipt-txt"></textarea>
+    <input type="text" placeholder="请输入作者名字">
+    <button onclick="submit()">提交</button>
+  </div>
+
+  <script>
+    function submit() {
+      var zhText = document.getElementsByClassName('ipt-txt')[0];
+      var enText = document.getElementsByClassName('ipt-txt')[1];
+      var author = document.getElementsByTagName('input')[0];
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('post', '/editEveryDay', true);
+      var data = new FormData();
+      data.append("zh", zhText.value);
+      data.append("en", enText.value);
+      data.append("author", author.value);
+      xhr.send(data)
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          
+          zhText.value = "";
+          enText.value = "";
+          author.value = "";
+        }
+      };
+    }
+  </script>
+</body>
+
+</html>

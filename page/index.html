@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="title">我的个人博客 | 技术博客</a>
+            <ul class="menu">
+                <li><a href="/">首页</a></li>
+                <li><a href="/sitemap.html">地图</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/leaveWord.html">留言</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" placeholder="请输入关键词查找">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+    <div class="content clearfix">
+        <div class="left">
+            <div class="every-day" id="every-day">
+                <h4>每日一句</h4>
+                <p class="en text">{{enText}}</p>
+                <p class="zh text">{{zhText}}<span class="author">————&nbsp;&nbsp;{{author}}</span></p>
+            </div>
+            <div class="article-list" id="article-list">
+                <article class="article" v-for="article in articleList">
+                    <h4 class="article-title"><a :href="article.link">{{article.title}}</a></h4>
+                    <p class="article-content" v-html="article.content">{{article.content}}</p>
+                    <div class="article-foot">
+                        发布于{{article.date}} |  浏览({{article.views}}) | Tags：{{article.tags}}
+                    </div>
+                </article>
+                <div class="page_tool">
+                    <ul>
+                        <li v-for="pageNum in pageList" v-bind:class="{now_page:(pageNum.text == page)}" v-on:click="jumpTo(pageNum.page)">{{pageNum.text}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="tags" id="tags">
+                <h4>随机标签云</h4>
+                <a  v-for="tag in tags" :style="{color:randomColor(), fontSize:randomSize()}" :href=tag.link>{{tag.text}}</a>
+            </div>
+            <div class="hot" id="hot">
+                <h4>最近热门</h4>
+                <ul>
+                    <li v-for="item in list"><a :href="item.link">{{item.title}}</a></li>
+                </ul>
+            </div>
+            <div class="new-comments" id="new-comments">
+                <h4>最新评论</h4>
+                <ul>
+                    <li v-for="comment in comments">
+                        <div>
+                            <span class="username">{{comment.name}}</span><span class="time">{{comment.ctime}}</span>
+                            <p class="comment">{{comment.content}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="link">
+                <h4>友情链接</h4>
+                <a href="#">Lorem ipsum</a>
+                <a href="#">Lorem ipsum dolor sit amet.</a>
+                <a href="#">Lorem ipsum dolor sit amet.</a>
+                <a href="#">Lorem ipsum dolor sit amet.</a>
+                <a href="#">Lorem ipsum dolor sit amet.</a>
+                <a href="#">Lorem ipsum dolor sit amet.</a>
+                <a href="#">Lorem ipsum dolor sit amet.</a>
+                <a href="#">Lorem ipsum dolor sit amet.</a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer" >
+        <ul>
+            <li>html</li>
+            <li>CSS/DIV</li>
+            <li>javascript</li>
+            <li>es6</li>
+            <li>h5/css3</li>
+            <li>webpack</li>
+            <li>vue/vuex/vue-router</li>
+            <li>react</li>
+            <li>git</li>
+            <li>bootstrap</li>
+            <li>jquery</li>
+            <li>nodejs</li>
+            <li>mysql</li>
+            <li>mongodb</li>
+        </ul>
+        <p>Copyright © 2010-2017 我的个人博客 巴拉巴拉巴拉</p>
+    </footer>
+    <script src="./js/base.js"></script>
+    <script src="./js/index.js"></script>
+    
+</body>
+</html>
