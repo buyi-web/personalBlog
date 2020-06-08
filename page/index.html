@@ -19,10 +19,12 @@
                 <li><a href="/sitemap.html">地图</a></li>
                 <li><a href="/about.html">关于</a></li>
                 <li><a href="/leaveWord.html">留言</a></li>
+                <li><a href="/editBlog.html">写博客</a></li>
+                <li><a href="/editEveryDay.html">每日一句</a></li>
             </ul>
-            <div class="search">
-                <input type="text" placeholder="请输入关键词查找">
-                <button>搜索</button>
+            <div class="search" id="search">
+                <input type="text" placeholder="请输入关键词查找" v-model="searchWord">
+                <button @click="submitSearch">搜索</button>
             </div>
         </div>
     </header>

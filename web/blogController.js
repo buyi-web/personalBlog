@@ -29,6 +29,17 @@ function queryBlogById(request, response){
 }
 path.set('/queryBlogById', queryBlogById);
 
+//通过title查找博客
+function queryBlogByTitle(request, response){
+    var params = url.parse(request.url, true).query;
+    blogDao.queryBlogByTitle(params.title, function(res){
+        response.writeHead(200);
+        response.write(respUtil.writeResp('success', '查询成功', res));
+        response.end()
+    })
+}
+path.set('/queryBlogByTitle', queryBlogByTitle);
+
 //查找博客的总数
 function queryBlogCount(request, response){
     blogDao.queryBlogCount(function(res){

@@ -141,3 +141,21 @@ var articleList = new Vue({
 
     }
 })
+
+var search = new Vue({
+    el: '#search',
+    data: {
+        searchWord: '',
+    },
+    methods: {
+        submitSearch(){
+            var content = this.searchWord;
+            axios({
+                method: 'get',
+                url: '/queryBlogByTitle?title='+content
+            }).then(res=>{
+                articleList.articleList = res.data.data
+            })
+        }
+    }
+})

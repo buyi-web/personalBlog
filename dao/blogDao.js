@@ -101,6 +101,20 @@ function queryHotBlog(size, success){
     })
     connetcion.end();
 }
+function queryBlogByTitle(title, success) {
+    var sql = "select * from blog where title = ?";
+    var params = [title];
+    var connetcion = dbutil.createConnection();
+    connetcion.connect();
+    connetcion.query(sql, params, function (err, res) {
+        if (!err) {
+            success(res);
+        } else {
+            console.log(err);
+        }
+    })
+    connetcion.end();
+}
 module.exports = {
     insertBlog,
     queryBlogByPage,
@@ -108,5 +122,6 @@ module.exports = {
     queryBlogById,
     queryHotBlog,
     addViews,
-    queryAllBlog
+    queryAllBlog,
+    queryBlogByTitle
 }

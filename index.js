@@ -24,3 +24,4 @@ app.get('/queryHotBlog', loader.pathMap.get('/queryHotBlog'));
 app.get('/queryNewComments', loader.pathMap.get('/queryNewComments'));
 app.get('/queryBlogByTag', loader.pathMap.get('/queryBlogByTag'));
 app.get('/queryCountTagBlog', loader.pathMap.get('/queryCountTagBlog'));
+app.get('/queryBlogByTitle', loader.pathMap.get('/queryBlogByTitle'))
